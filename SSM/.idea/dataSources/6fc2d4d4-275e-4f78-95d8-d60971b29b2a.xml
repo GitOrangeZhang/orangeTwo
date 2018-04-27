@@ -1,0 +1,268 @@
+<dataSource name="MySQL - car_firm@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="car_firm">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="huaprison" />
+    <schema id="3" name="information_schema" />
+    <schema id="4" name="mymovie" />
+    <schema id="5" name="mysql" />
+    <schema id="6" name="performance_schema" />
+    <schema id="7" name="product" />
+    <schema id="8" name="springmvcdb" />
+    <schema id="9" name="staff" />
+    <schema id="10" name="student" />
+    <schema id="11" name="sys" />
+    <schema id="12" name="test" />
+    <schema id="13" name="testdb" />
+    <schema id="14" name="webbill" />
+    <schema id="15" name="xfreecms" />
+    <table id="16" parent="1" name="administrators" />
+    <table id="17" parent="1" name="applyfor" />
+    <table id="18" parent="1" name="car" />
+    <table id="19" parent="1" name="carbrand" />
+    <table id="20" parent="1" name="cartype" />
+    <table id="21" parent="1" name="corporate_culture" />
+    <table id="22" parent="1" name="leaveword" />
+    <table id="23" parent="1" name="orderform" />
+    <table id="24" parent="1" name="recruit" />
+    <table id="25" parent="1" name="users" />
+    <column id="26" parent="16" name="adminId">
+      <mandatory>1</mandatory>
+      <data-type>int(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="27" parent="16" name="adminName">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="28" parent="16" name="adminPassword">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="29" parent="16" name="adminGender">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="30" parent="16" name="adminTel">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="31" parent="16" name="adminGrade">
+      <data-type>int(20)|0</data-type>
+    </column>
+    <key id="32" parent="16" name="PRIMARY">
+      <columns>adminId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="33" parent="17" name="applyForId">
+      <mandatory>1</mandatory>
+      <data-type>int(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="34" parent="17" name="recruitId">
+      <data-type>int(20)|0</data-type>
+    </column>
+    <column id="35" parent="17" name="userId">
+      <data-type>int(20)|0</data-type>
+    </column>
+    <column id="36" parent="17" name="userRealName">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="37" parent="17" name="birthday">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="38" parent="17" name="userPic">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="39" parent="17" name="userAdress">
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="40" parent="17" name="userQualification">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="41" parent="17" name="userIDCardNumber">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="42" parent="17" name="workExperience">
+      <data-type>varchar(300)|0</data-type>
+    </column>
+    <column id="43" parent="17" name="selfEvaluation">
+      <data-type>varchar(300)|0</data-type>
+    </column>
+    <key id="44" parent="17" name="PRIMARY">
+      <columns>applyForId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="45" parent="18" name="carId">
+      <mandatory>1</mandatory>
+      <data-type>int(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="46" parent="18" name="cartypeId">
+      <data-type>int(20)|0</data-type>
+    </column>
+    <column id="47" parent="18" name="carbrandId">
+      <data-type>int(20)|0</data-type>
+    </column>
+    <column id="48" parent="18" name="carPrice">
+      <data-type>int(20)|0</data-type>
+    </column>
+    <column id="49" parent="18" name="carMarketTime">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="50" parent="18" name="carSynopsis">
+      <data-type>varchar(200)|0</data-type>
+    </column>
+    <column id="51" parent="18" name="carPic">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="52" parent="18" name="carVersion">
+      <data-type>varchar(200)|0</data-type>
+    </column>
+    <column id="53" parent="18" name="otherMessage">
+      <data-type>varchar(200)|0</data-type>
+    </column>
+    <key id="54" parent="18" name="PRIMARY">
+      <columns>carId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="55" parent="19" name="carbrandId">
+      <mandatory>1</mandatory>
+      <data-type>int(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="56" parent="19" name="carbrandName">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="57" parent="19" name="carbrandInitiator">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="58" parent="19" name="initiatorTime">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="59" parent="19" name="carbrandPic">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <key id="60" parent="19" name="PRIMARY">
+      <columns>carbrandId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="61" parent="20" name="cartypeId">
+      <mandatory>1</mandatory>
+      <data-type>int(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="62" parent="20" name="cartypeName">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <key id="63" parent="20" name="PRIMARY">
+      <columns>cartypeId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="64" parent="21" name="ccId">
+      <mandatory>1</mandatory>
+      <data-type>int(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="65" parent="21" name="corporationName">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="66" parent="21" name="corporationOverview">
+      <data-type>varchar(800)|0</data-type>
+    </column>
+    <column id="67" parent="21" name="brandHistory">
+      <data-type>varchar(800)|0</data-type>
+    </column>
+    <column id="68" parent="21" name="brandPromise">
+      <data-type>varchar(800)|0</data-type>
+    </column>
+    <column id="69" parent="21" name="corporationPic">
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <key id="70" parent="21" name="PRIMARY">
+      <columns>ccId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="71" parent="22" name="leaveWordId">
+      <mandatory>1</mandatory>
+      <data-type>int(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="72" parent="22" name="leaveWordMessage">
+      <data-type>varchar(300)|0</data-type>
+    </column>
+    <column id="73" parent="22" name="leaveWordTime">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="74" parent="22" name="userId">
+      <data-type>int(20)|0</data-type>
+    </column>
+    <key id="75" parent="22" name="PRIMARY">
+      <columns>leaveWordId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="76" parent="23" name="orderFormId">
+      <mandatory>1</mandatory>
+      <data-type>int(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="77" parent="23" name="orderFormName">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="78" parent="23" name="userId">
+      <data-type>int(20)|0</data-type>
+    </column>
+    <column id="79" parent="23" name="deposit">
+      <data-type>int(20)|0</data-type>
+    </column>
+    <column id="80" parent="23" name="orderFormMessage">
+      <data-type>varchar(300)|0</data-type>
+    </column>
+    <column id="81" parent="23" name="orderFormTime">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <key id="82" parent="23" name="PRIMARY">
+      <columns>orderFormId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="83" parent="24" name="recruitId">
+      <mandatory>1</mandatory>
+      <data-type>int(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="84" parent="24" name="position">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="85" parent="24" name="requirement">
+      <data-type>varchar(200)|0</data-type>
+    </column>
+    <column id="86" parent="24" name="recruitState">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="87" parent="24" name="salary">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <key id="88" parent="24" name="PRIMARY">
+      <columns>recruitId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="89" parent="25" name="userId">
+      <mandatory>1</mandatory>
+      <data-type>int(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="90" parent="25" name="userName">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="91" parent="25" name="userPassword">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="92" parent="25" name="userGender">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="93" parent="25" name="userTel">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <key id="94" parent="25" name="PRIMARY">
+      <columns>userId</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>

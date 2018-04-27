@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.prj.dao.CarBrandMapper">
+	
+	<select id="findAll" resultType="carBrand">
+		SELECT * FROM carBrand
+	</select>
+	<select id="findById" resultType="carBrand">
+		SELECT * FROM carBrand where carbrandId = #{id}
+	</select>
+	<insert id="save"  parameterType="carBrand">
+		INSERT INTO carBrand(carbrandName,carbrandInitiator,initiatorTime,carbrandPic) VALUES(#{carbrandName},#{carbrandInitiator},#{initiatorTime},#{carbrandPic})
+	</insert>
+	<delete id="del"  parameterType="int">
+		DELETE FROM carBrand WHERE carbrandId = #{id}
+	</delete>
+	<update id="update" parameterType="carBrand">
+		UPDATE carBrand SET carbrandName = #{carbrandName},carbrandInitiator = #{carbrandInitiator},initiatorTime = #{initiatorTime},carbrandPic = #{carbrandPic} WHERE carbrandId = #{carbrandId}
+	</update>
+</mapper>  

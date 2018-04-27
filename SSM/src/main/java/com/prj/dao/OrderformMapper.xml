@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.prj.dao.OrderformMapper">
+	<resultMap type="com.prj.pojo.Orderform" id="of">
+		<id column="orderFormId" property="orderFormId"/>
+		<result column="deposit" property="deposit"/>
+		<result column="orderFormName" property="orderFormName"/>
+		<result column="orderFormMessage" property="orderFormMessage"/>
+		<result column="orderFormTime" property="orderFormTime"/>
+		<association property="user" javaType="com.prj.pojo.Users">
+			<id column="userId" property="userId"/>
+			<result column="userName" property="userName"/>
+			<result column="userGender" property="userGender"/>
+			<result column="userTel" property="userTel"/>
+		</association>
+	</resultMap>
+	<!-- 查询所有 -->
+	<select id="findAll" resultMap="of">
+		SELECT	o.*,u.*
+		FROM orderform o,users u WHERE o.`userId`=u.`userId`
+	</select>
+	<!-- 增加 -->
+	<insert id="save" parameterType="Orderform">
+		insert into orderform(orderFormName,deposit,orderFormMessage,orderFormTime) values(#{orderFormName},#{deposit},#{orderFormMessage},#{orderFormTime})
+	</insert>
+	<!-- 删除 -->
+	<delete id="del" parameterType="int">
+		delete from orderform where
+		orderformId=#{id}
+	</delete>
+	<!-- 修改 -->
+	<update id="update" parameterType="Orderform">
+		update Orderform set
+		orderFormName=#{orderFormName},deposit=#{deposit},orderFormMessage=#{orderFormMessage},orderFormTime=#{orderFormTime} where
+		orderFormId=#{orderFormId}
+	</update>
+	<!-- 查询id对象 -->
+	<select id="findById" parameterType="int" resultMap="of">
+		select * from orderform where orderformId=#{id}
+	</select>
+	<!-- seach -->
+	<select id="seach" parameterType="String" resultMap="of">
+		select * from orderform where orderformId=#{id}
+	</select>
+</mapper>  

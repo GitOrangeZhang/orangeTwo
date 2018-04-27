@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.prj.dao.RecruitMapper">
+	
+	<select id="findAll" resultType="Recruit">
+		SELECT * FROM Recruit
+	</select>
+	
+	<insert id="save" parameterType="Recruit">
+		INSERT INTO Recruit(position,requirement,recruitState,salary) 
+		VALUES(#{position},#{requirement},#{recruitState},#{salary})
+	</insert>
+	
+	<delete id="del" parameterType="int">
+		delete from Recruit where recruitId = #{id}
+	</delete>
+	
+	<select id="findById" parameterType="int" resultType="Recruit">
+		SELECT * FROM Recruit WHERE  recruitId = #{id}
+	</select>
+	<update id="update" parameterType="Recruit">
+		update Recruit set position=#{position},requirement=#{requirement},recruitState=#{recruitState},salary=#{salary}
+		where recruitId = #{recruitId}
+	</update>
+	
+</mapper>  

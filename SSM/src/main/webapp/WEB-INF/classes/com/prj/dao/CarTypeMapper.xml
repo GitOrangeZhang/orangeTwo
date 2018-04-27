@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.prj.dao.CarTypeMapper">
+	
+	<select id="findAll" resultType="carType">
+		SELECT * FROM CarType
+	</select>
+	<insert id="save"  parameterType="carType">
+		INSERT INTO cartype(cartypeName) VALUES(#{cartypeName})
+	</insert>
+	<delete id="delete"  parameterType="int">
+		DELETE FROM cartype WHERE cartypeId = #{id}
+	</delete>
+	<update id="update" parameterType="carType">
+		UPDATE cartype SET cartypeName = #{cartypeName} WHERE cartypeId = #{cartypeId}
+	</update>
+</mapper>  

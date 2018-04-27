@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.prj.dao.UsersMapper">
+	<!-- 查询所有 -->
+	<select id="findAll" resultType="Users">
+		select * from users
+	</select>
+	<!-- 增加 -->
+	<insert id="save" parameterType="Users">
+		insert into users(userName,userGender,userTel) values(#{userName},#{userGender},#{userTel})
+	</insert>
+	<!-- 删除 -->
+	<delete id="del" parameterType="int">
+		delete from users where
+		userId=#{id}
+	</delete>
+	<!-- 修改 -->
+	<update id="update" parameterType="Users">
+		update users set
+		userName=#{userName},userGender=#{userGender},userTel=#{userTel} where
+		userId=#{userId}
+	</update>
+	<!-- 查询id对象 -->
+	<select id="findById" parameterType="int" resultType="Users">
+		select * from users where userId=#{id}
+	</select>
+</mapper>  

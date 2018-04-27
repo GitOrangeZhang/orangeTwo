@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.prj.dao.CarMapper">
+	<resultMap type="com.prj.pojo.Car" id="findCar">
+		<id column="carId" property="carId"/>
+		<result column="carPrice" property="carPrice"/>
+		<result column="carMarketTime" property="carMarketTime"/>
+		<result column="carSynopsis" property="carSynopsis"/>
+		<result column="carPic" property="carPic"/>
+		<result column="carVersion" property="carVersion"/>
+		<result column="otherMessage" property="otherMessage"/>
+		<association property="carBrand" javaType="com.prj.pojo.CarBrand">
+			<id column="carbrandId" property="carbrandId"/>
+			<result column="carbrandName" property="carbrandName"/>
+			<result column="carbrandInitiator" property="carbrandInitiator"/>
+			<result column="initiatorTime" property="initiatorTime"/>
+			<result column="carbrandPic" property="carbrandPic"/>
+		</association>
+		<association property="carType" javaType="com.prj.pojo.CarType">
+			<id column="cartypeId" property="cartypeId"/>
+			<result column="cartypeName" property="cartypeName"/>
+		</association>
+	</resultMap>
+
+	<select id="findAll" resultMap="findCar">
+		SELECT c.*,ct.cartypeName,cb.*
+		FROM car c,cartype ct,carbrand cb WHERE c.cartypeId = ct.cartypeId AND c.carbrandId = cb.carbrandId
+	</select>
+	
+	<insert id="save" parameterType="car">
+		INSERT INTO car(cartypeId,carbrandId,carPrice,carMarketTime,carSynopsis,carPic,carVersion,otherMessage) 
+		VALUES(#{cartypeId},#{carbrandId},#{carPrice},#{carMarketTime},#{carSynopsis},#{carPic},#{carVersion},#{otherMessage})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from car where carId = #{id}
+	</delete>
+	
+	<select id="findById" parameterType="int" resultMap="findCar">
+		SELECT c.*,ct.cartypeName,cb.carbrandName
+		FROM car c,cartype ct,carbrand cb WHERE c.cartypeId = ct.cartypeId AND c.carbrandId = cb.carbrandId and c.carId = #{id}
+	</select>
+	<update id="update" parameterType="car">
+		update car set cartypeId=#{cartypeId},carbrandId=#{carbrandId},carPrice=#{carPrice},carMarketTime=#{carMarketTime},
+		carSynopsis=#{carSynopsis},carPic=#{carPic},carVersion=#{carVersion},otherMessage=#{otherMessage} where carId = #{carId}
+	</update>
+	
+</mapper>  

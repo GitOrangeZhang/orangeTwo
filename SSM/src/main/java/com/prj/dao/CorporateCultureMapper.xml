@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.prj.dao.CorporateCultureMapper">
+	
+	<select id="findAll" resultType="Corporate_culture">
+		SELECT * FROM Corporate_culture
+	</select>
+	<update id="update" parameterType="Corporate_culture">
+		UPDATE Corporate_culture SET corporationName = #{corporationName},corporationOverview = #{corporationOverview},
+		brandHistory = #{brandHistory},brandPromise = #{brandPromise},corporationPic = #{corporationPic} WHERE ccId = #{ccId}
+	</update>
+</mapper>  

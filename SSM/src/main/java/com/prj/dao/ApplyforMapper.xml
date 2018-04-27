@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.prj.dao.ApplyforMapper">
+	
+	<resultMap type="com.prj.pojo.Applyfor" id="applyfors">
+		<id column="applyForId" property="applyForId"/>
+		<result column="userRealName" property="userRealName"/>
+		<result column="birthday" property="birthday"/>
+		<result column="userPic" property="userPic"/>
+		<result column="userAdress" property="userAdress"/>
+		<result column="userQualification" property="userQualification"/>
+		<result column="userIDCardNumber" property="userIDCardNumber"/>
+		<result column="workExperience" property="workExperience"/>
+		<result column="selfEvaluation" property="selfEvaluation"/>
+		<association property="recruit" javaType="com.prj.pojo.Recruit">
+			<id column="recruitId" property="recruitId"/>
+			<result column="position" property="position"/>
+			<result column="requirement" property="requirement"/>
+			<result column="recruitState" property="recruitState"/>
+			<result column="salary" property="salary"/>
+		</association>
+		<association property="user" javaType="com.prj.pojo.Users">
+			<id column="userId" property="userId"/>
+			<result column="userName" property="userName"/>
+			<result column="userPassword" property="userPassword"/>
+			<result column="userGender" property="userGender"/>
+			<result column="userTel" property="userTel"/>
+		</association>
+	</resultMap>
+	<select id="findAll" resultMap="applyfors">
+		SELECT af.*,u.*,r.*
+		FROM applyfor af,users u,recruit r WHERE af.userId=u.userId AND af.recruitId=r.recruitId
+	</select>
+	
+	<insert id="save" parameterType="Applyfor">
+		INSERT INTO Applyfor(recruitId,userId,userRealName,birthday,userPic,userAdress,userQualification,userIDCardNumber,workExperience,selfEvaluation) 
+		VALUES(#{recruitId},#{userId},#{userRealName},#{birthday},#{userPic},#{userAdress},#{userQualification},#{userIDCardNumber},#{workExperience},#{selfEvaluation})
+	</insert>
+	
+	<delete id="del" parameterType="int">
+		delete from Applyfor where applyForId = #{id}
+	</delete>
+	
+	<select id="findById" parameterType="int" resultMap="applyfors">
+		SELECT af.*,u.*,r.*
+		FROM applyfor af,users u,recruit r WHERE af.userId=u.userId AND 
+		af.recruitId=r.recruitId AND applyForId = #{id}
+	</select>
+	<update id="update" parameterType="Applyfor">
+		update Recruit set recruitId=#{recruitId},userId=#{userId},userRealName=#{userRealName},birthday=#{birthday},userPic=#{userPic},userAdress=#{userAdress},userQualification=#{userQualification}
+		,userIDCardNumber=#{userIDCardNumber},workExperience=#{workExperience},selfEvaluation=#{selfEvaluation}
+		where applyForId = #{applyForId}
+	</update>
+	
+</mapper>  
